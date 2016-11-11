@@ -1,6 +1,6 @@
 [submodule "apache"]
 	path = apache
-	url = git@github.com:wrongware/docker-apache.git
+	url = https://github.com/wrongware/docker-apache.git
 [submodule "mysql"]
 	path = mysql
-	url = git@github.com:wrongware/docker-mysql.git
+	url = https://github.com/wrongware/docker-mysql.git
