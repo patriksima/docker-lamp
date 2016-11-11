@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+
+### Apache Container ########################################
+    apache:
+        build:
+            context: ./apache
+            args:
+                - INSTALL_NPM=true
+                - INSTALL_GULP=true
+                - INSTALL_COMPASS=true
+                - INSTALL_COMPOSER=true
+                - INSTALL_WPCLI=true
+        links:
+            - mysql
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ../:/var/www/html
+
+### MySQL Container #########################################
+    mysql:
+        build:
+            context: ./mysql
+        ports:
+            - "3306:3306"
+        volumes:
+            - mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: dev
+            MYSQL_PASSWORD: secret
+            MYSQL_DATABASE: myapp
+
+### Volumes Setup ###########################################
+volumes:
+    mysql:
+        driver: "local"
