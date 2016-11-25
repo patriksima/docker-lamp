@@ -20,6 +20,8 @@ Add this repository into your project root directory:
 
 ```bash
 git submodule add https://github.com/wrongware/docker-lamp.git
+cd docker-lamp
+git submodule update --init --recursive
 ```
 
 ## Setup
